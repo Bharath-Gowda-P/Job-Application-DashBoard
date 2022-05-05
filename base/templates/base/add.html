@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+
+{% block title %}
+ADD 
+{% endblock %}
+
+{% block body %}
+
+<div class="container my-5">
+<form method="POST" action="add" enctype="multipart/form-data"> 
+{% csrf_token %}
+<div class="mb-3 container b-flex p-2">
+  <label  class="form-label">Name</label>
+  <input type="text" class="form-control" id="name" name="name">
+</div>
+<div class="mb-3 container b-flex p-2">
+  <label  class="form-label">Phone Number</label>
+  <input type="text" class="form-control" id="phone" name="phone">
+</div>
+<div class="mb-3 container b-flex p-2">
+  <label  class="form-label">Address</label>
+  <input type="text" class="form-control" id="address" name="address">
+</div>
+<div class="mb-3 container b-flex p-2">
+  <label  class="form-label">Course</label>
+  <input type="text" class="form-control" id="course" name="course">
+</div>
+<div class="mb-3 container b-flex p-2">
+  <label  class="form-label">Degree</label>
+  <input type="text" class="form-control" id="degree" name="degree">
+</div>
+<div class="mb-3 container b-flex p-2">
+  <label  class="form-label">Year of Experience</label>
+  <input type="number" class="form-control" id="yoe" name="yoe">
+</div>
+<div class="mb-3 container b-flex p-2">
+    <label  class="form-label">Previous Company</label>
+    <input type="text" class="form-control" id="pcompany" name="pcompany">
+  </div>
+  <div class="mb-3 container b-flex p-2">
+    <label  class="form-label">Skills</label>
+    <input type="text" class="form-control" id="skills" name="skills">
+  </div>
+  <div class="mb-3 container b-flex p-2">
+    <label for="formFile" class="form-label">Document</label>
+<input type="file" class = "form-control" id="file" name="file">
+</div>
+<div class="mb-3 container b-flex p-2">
+<label class="form-label">Status</label>
+<select class="form-select" id="status" name="status">
+<option selected>Select</option>
+  <option value="Applied">Applied</option>
+  <option value="Accept">Accept</option>
+  <option value="Reject">Reject</option>
+</select>
+</div>
+
+<div class="mb-3 container b-flex p-2">
+<button type="submit" class="btn btn-lg btn-success bg-gradient">Add Candidate</button>
+<a class="btn btn-lg btn-danger bg-gradient" href="/" role="button">Cancel</a>
+</div>
+</form>
+<div>
+
+
+
+{% endblock %}

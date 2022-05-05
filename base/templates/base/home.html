@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+
+{% block title %}
+HOME
+{% endblock %}
+
+{% block body %}
+
+
+
+<br>
+<br>
+<div class="mb-3 container b-flex p-2">
+    <a class="btn btn-lg btn-info bg-gradient" href="add" role="button">Add Candidate</a>
+    </div>
+    
+    <table class="table mb-3 container b-flex p-2">
+        <thead>
+          <tr>
+            <th scope="col">Sl.No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Years of Experience</th>
+            <th scope="col">Status</th>
+            <th scope="col">Resume</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for D in data %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'candidate' D.id %}">{{D.name}}</a></td>
+            <td>{{D.yoe}}</td>
+            <td>{{D.status}}</td>
+            <td><a class="btn btn-sm btn-success bg-gradient" href="{% url 'download' D.id %}" role="button">Download</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+
+
+{% endblock %}

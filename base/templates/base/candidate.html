@@ -1,0 +1,77 @@
+{% extends 'main.html' %}
+
+{% block title %}
+CANDIDATE
+{% endblock %}
+
+{% block body %}
+
+<br>
+<br>
+<form method="POST" action="{% url 'edit' obj.id %}" enctype="multipart/form-data"> 
+    {% csrf_token %}
+<div class="mb-3 container b-flex p-2">
+    <h3>
+    <label  class="form-label" value="{{obj.name}}" name="name" >Name:  {{obj.name}}</label>
+</h3>
+  </div>
+<div class="mb-3 container b-flex p-2">
+    <h3>
+    <label  class="form-label" value="{{obj.phone}}" name="phone">Phone Number:  {{obj.phone}}</label>
+</h3>
+  </div>
+<div class="mb-3 container b-flex p-2">
+    <h3>
+    <label  class="form-label">Address:  {{obj.address}}</label>
+</h3>
+  </div>
+<div class="mb-3 container b-flex p-2">
+    <h3>
+    <label  class="form-label">Course:  {{obj.course}}</label>
+</h3>
+  </div>
+<div class="mb-3 container b-flex p-2">
+    <h3>
+    <label  class="form-label">Degree:  {{obj.degree}}</label>
+</h3>
+  </div>
+<div class="mb-3 container b-flex p-2">
+    <h3>
+    <label  class="form-label">Years of Experience:  {{obj.yoe}}</label>
+</h3>
+  </div>
+<div class="mb-3 container b-flex p-2">
+    <h3>
+    <label  class="form-label">Previous Company:  {{obj.pcompany}}</label>
+</h3>
+  </div>
+<div class="mb-3 container b-flex p-2">
+    <h3>
+    <label  class="form-label">Skills:  {{obj.skills}}</label>
+</h3>
+  </div>
+<div class="mb-3 container b-flex p-2">
+    <h3>
+    <label  class="form-label">Resume:    <a class="btn btn-lr btn-success bg-gradient" href="{% url 'download' obj.id %}" role="button">Download</a></label>
+</h3>
+  </div>
+  <div class=" container b-flex p-2">
+      <h3>
+    <label class="form-label">Status</label>
+    <select class="form-select" id="status" name="status" >
+    <option selected>{{obj.status}}</option>
+      <option value="Applied">Applied</option>
+      <option value="Accept">Accept</option>
+      <option value="Reject">Reject</option>
+    </select>
+</h3>
+    </div>
+
+  <br>
+  <br>
+  <div class="mb-3 container b-flex p-2">
+    <button type="submit" class="btn btn-lg btn-success bg-gradient">Update Status</button>
+      <a class="btn btn-lg btn-danger bg-gradient" href="/" role="button">Cancel</a>
+      </div>
+</form>
+{% endblock %}
